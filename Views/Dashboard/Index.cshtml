@@ -1,0 +1,178 @@
+@model gestionCompte.Models.Dashboard
+@{
+    ViewData["Title"] = "Details du compte";
+}
+<div class="container py-5">
+    <div class="mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="h3 mb-0">Détails du compte</h1>
+            <small class="text-muted">Gestion bancaire</small>
+        </div>
+        <form method="get" asp-action="Index" class="d-flex" style="width:360px;">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input name="numCompte" type="text" class="form-control" placeholder="Rechercher un compte"
+                    value="@Model.Compte?.Numero" />
+                <button class="btn btn-primary">OK</button>
+            </div>
+        </form>
+    </div>
+    @if (Model.Compte == null && string.IsNullOrEmpty(ViewContext.HttpContext.Request.Query["numCompte"]))
+    {
+        <div class="text-muted">Veuillez rechercher un compte pour afficher ses informations.</div>
+    }
+    else if (Model.Compte == null)
+    {
+        <div class="alert alert-warning">Aucun compte trouvé.</div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <div class="col-12 col-lg-4">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Informations du compte</h5>
+                        <div class="mb-3">
+                            <small class="text-muted d-block">N° Compte</small>
+                            <div class="fw-semibold text-primary">@Model.Compte?.Numero ?? "N/A"</div>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Titulaire</small>
+                            <div class="fw-semibold">@Model.Compte?.Titulaire ?? "N/A"</div>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Type</small>
+                            <span class="badge bg-info text-dark">@Model.Compte?.Type ?? "N/A"</span>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Solde actuel</small>
+                            <div class="h4 text-success fw-bold">
+                                @(Model.Compte != null ? Model.Compte.SoldeActuel.ToString("N0") + " FCFA" : "N/A")
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <small class="text-muted d-block">Créé le</small>
+                            <div>@(Model.Compte?.DateCreation.ToString("dd/MM/yyyy") ?? "N/A")</div>
+                        </div>
+                        <div class="mb-2">
+                            <small class="text-muted d-block">Statut</small>
+                            <span class="badge bg-warning text-dark">
+                                @(Model.Compte != null ? (Model.Compte.Statut ? "Actif" : "Bloqué") : "N/A")
+                            </span>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block">Date de déblocage</small>
+                            <div>@Model.Compte?.DateDeblocage?.ToString("dd/MM/yyyy") ?? "N/A"</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques</h5>
+                        <div class="mb-2">
+                            <small class="text-muted d-block">Total des dépôts</small>
+                            <div class="fw-semibold text-success">
+                                @(Model.Statistiques != null ? Model.Statistiques.TotalDepots.ToString("N0") + " FCFA" : "N/A")
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <small class="text-muted d-block">Total des retraits</small>
+                            <div class="fw-semibold text-danger">
+                                @(Model.Statistiques != null ? Model.Statistiques.TotalRetraits.ToString("N0") + " FCFA" : "N/A")
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <small class="text-muted d-block">Nombre de transactions</small>
+                            <div class="fw-semibold">@Model.Statistiques?.NombreTransactions ?? "N/A"</div>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block">Dernière transaction</small>
+                            <div>@Model.Statistiques?.DerniereTransaction ?? "N/A"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Historique des transactions</h5>
+                        @if (Model.Transactions != null && Model.Transactions.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover align-middle">
+                                    <thead class="border-bottom">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th class="text-end">Montant</th>
+                                            <th class="text-end">Solde après</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (var t in Model.Transactions)
+                                    {
+                                        <tr>
+                                            <td>@t.Id</td>
+                                            <td>@t.Date.ToString("dd/MM/yyyy HH:mm")</td>
+                                            <td>
+                                                @if (t.Montant > 0)
+                                                {
+                                                    <span class="badge bg-success">Dépôt</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">Retrait</span>
+                                                }
+                                            </td>
+                                            <td class="text-end fw-semibold">
+                                                @((t.Montant > 0 ? "+" : "") + t.Montant.ToString("N0")) FCFA
+                                            </td>
+                                            <td class="text-end">@t.SoldeApres.ToString("N0") FCFA</td>
+                                            <td class="text-muted">@t.Description</td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav class="d-flex justify-content-center mt-3">
+                                <ul class="pagination pagination-sm mb-0">
+                                    @if (Model.CurrentPage > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                                href="?numCompte=@Model.Compte.Numero&page=@(Model.CurrentPage - 1)">
+                                                Précédent
+                                            </a>
+                                        </li>
+                                    }
+                                    @for (int i = 1; i <= Model.TotalPages; i++)
+                                    {
+                                        <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                                            <a class="page-link"
+                                                href="?numCompte=@Model.Compte.Numero&page=@i">@i</a>
+                                        </li>
+                                    }
+                                    @if (Model.CurrentPage < Model.TotalPages)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                                href="?numCompte=@Model.Compte.Numero&page=@(Model.CurrentPage + 1)">
+                                                Suivant
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        }
+                        else
+                        {
+                            <div class="text-muted">Aucune transaction trouvée.</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
