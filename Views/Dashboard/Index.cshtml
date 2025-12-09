@@ -51,8 +51,8 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <small class="text-muted d-block">Créé le</small>
-                            <div>@(Model.Compte?.DateCreation.ToString("dd/MM/yyyy") ?? "N/A")</div>
+                            <small class="text-muted d-block">Date de creation</small>
+                            <div>@(Model.Compte?.DateCreation.ToLocalTime().ToString("dd/MM/yyyy") ?? "N/A")</div>
                         </div>
                         <div class="mb-2">
                             <small class="text-muted d-block">Statut</small>
@@ -61,8 +61,8 @@
                             </span>
                         </div>
                         <div>
-                            <small class="text-muted d-block">Date de déblocage</small>
-                            <div>@Model.Compte?.DateDeblocage?.ToString("dd/MM/yyyy") ?? "N/A"</div>
+                            <small class="text-muted d-block">Date de deblocage</small>
+                            <div>@Model.Compte?.DateDeblocage?.ToLocalTime().ToString("dd/MM/yyyy") ?? "N/A"</div>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Statistiques</h5>
                         <div class="mb-2">
-                            <small class="text-muted d-block">Total des dépôts</small>
+                            <small class="text-muted d-block">Total des depots</small>
                             <div class="fw-semibold text-success">
                                 @(Model.Statistiques != null ? Model.Statistiques.TotalDepots.ToString("N0") + " FCFA" : "N/A")
                             </div>
@@ -87,7 +87,11 @@
                         </div>
                         <div>
                             <small class="text-muted d-block">Dernière transaction</small>
-                            <div>@Model.Statistiques?.DerniereTransaction ?? "N/A"</div>
+                            <div>
+                                @(Model.Statistiques?.DerniereTransaction != null 
+                                    ? Model.Statistiques.DerniereTransaction.Value.ToLocalTime().ToString("dd/MM/yyyy") 
+                                    : "N/A")
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,7 +110,7 @@
                                             <th>Date</th>
                                             <th>Type</th>
                                             <th class="text-end">Montant</th>
-                                            <th class="text-end">Solde après</th>
+                                            <th class="text-end">Solde apres</th>
                                             <th>Description</th>
                                         </tr>
                                     </thead>
@@ -115,11 +119,11 @@
                                     {
                                         <tr>
                                             <td>@t.Id</td>
-                                            <td>@t.Date.ToString("dd/MM/yyyy HH:mm")</td>
+                                            <td>@t.Date.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
                                             <td>
                                                 @if (t.Montant > 0)
                                                 {
-                                                    <span class="badge bg-success">Dépôt</span>
+                                                    <span class="badge bg-success">Depot</span>
                                                 }
                                                 else
                                                 {
@@ -168,7 +172,7 @@
                         }
                         else
                         {
-                            <div class="text-muted">Aucune transaction trouvée.</div>
+                            <div class="text-muted">Aucune transaction trouvee.</div>
                         }
                     </div>
                 </div>

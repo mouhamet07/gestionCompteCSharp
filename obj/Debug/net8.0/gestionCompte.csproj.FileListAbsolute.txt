@@ -102,3 +102,4 @@ C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\refint\gestio
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.pdb
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.genruntimeconfig.cache
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\ref\gestionCompte.dll
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.sourcelink.json

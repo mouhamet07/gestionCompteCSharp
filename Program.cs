@@ -65,7 +65,7 @@ public static class DbInitializer
                 TitulaireId = t.Id,
                 Type = t.Id % 2 == 0 ? CompteType.EPARGNE : CompteType.COURANT,
                 SoldeActuel = rnd.Next(100000, 1000000),
-                DateCreation = DateTime.Today.AddDays(-rnd.Next(0, 1000)),
+                DateCreation = DateTime.UtcNow.AddDays(-rnd.Next(0, 1000)),
                 Statut = t.Id % 3 != 0
             };
             comptes.Add(compte);
@@ -84,7 +84,7 @@ public static class DbInitializer
                 transactions.Add(new Transaction
                 {
                     CompteId = c.Id,
-                    Date = DateTime.Now.AddDays(-i),
+                    Date = DateTime.UtcNow.AddDays(-i),
                     Montant = montant,
                     SoldeApres = solde,
                     Description = i % 2 == 0 ? "Retrait" : "Dépôt"
