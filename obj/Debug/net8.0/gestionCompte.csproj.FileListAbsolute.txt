@@ -1,11 +1,3 @@
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.csproj.AssemblyReference.cache
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.AssemblyInfoInputs.cache
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.AssemblyInfo.cs
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.csproj.CoreCompileInputs.cache
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.RazorAssemblyInfo.cache
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.RazorAssemblyInfo.cs
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\appsettings.json
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\gestionCompte.staticwebassets.runtime.json
@@ -86,6 +78,15 @@ C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\ru\Microsoft.
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.AssemblyInfoInputs.cache
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.AssemblyInfo.cs
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.RazorAssemblyInfo.cache
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.RazorAssemblyInfo.cs
+C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.sourcelink.json
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\staticwebassets\msbuild.gestionCompte.Microsoft.AspNetCore.StaticWebAssets.props
@@ -102,4 +103,3 @@ C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\refint\gestio
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.pdb
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.genruntimeconfig.cache
 C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\ref\gestionCompte.dll
-C:\Users\mouha\Desktop\c#\gesCompte\gestionCompte\obj\Debug\net8.0\gestionCompte.sourcelink.json

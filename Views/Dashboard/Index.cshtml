@@ -3,19 +3,21 @@
     ViewData["Title"] = "Details du compte";
 }
 <div class="container py-5">
-    <div class="mb-4 d-flex justify-content-between align-items-center">
-        <div>
-            <h1 class="h3 mb-0">Détails du compte</h1>
-            <small class="text-muted">Gestion bancaire</small>
-        </div>
-        <form method="get" asp-action="Index" class="d-flex" style="width:360px;">
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input name="numCompte" type="text" class="form-control" placeholder="Rechercher un compte"
-                    value="@Model.Compte?.Numero" />
-                <button class="btn btn-primary">OK</button>
+    <div class="card border-0 mb-4 shadow-sm p-3">
+        <div class="card-body">
+            <div>
+                <h1 class="h3 mb-0">Détails du compte</h1>
+                <small class="text-muted">Gestion bancaire</small>
             </div>
-        </form>
+            <form method="get" asp-action="Index" class="row g-3 d-flex align-items-center mt-3" style="width:360px;">
+                <div class="col-md-8">
+                    <input name="numCompte" type="text" class="form-control" placeholder="Rechercher un compte" />
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" type="submit">Rechercher</button>
+                </div>
+            </form>
+        </div>
     </div>
     @if (Model.Compte == null && string.IsNullOrEmpty(ViewContext.HttpContext.Request.Query["numCompte"]))
     {
